@@ -13,7 +13,7 @@ attr_writer: note
     @email = email
     @note = note
     @id = @@id
-    @@id += 1 
+    @@id += 1
   end
 
   # This method should call the initializer,
@@ -26,12 +26,14 @@ attr_writer: note
 
   # This method should return all of the existing contacts
   def self.all
-
+    return @@contacts
   end
 
   # This method should accept an id as an argument
   # and return the contact who has that id
-  def self.find
+  def self.find (id)
+    @id = id
+    return @@contacts(id)
 
   end
 
