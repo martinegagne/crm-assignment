@@ -1,7 +1,9 @@
+require relative "contact"
+
 class CRM
 
-  def initialize
-
+  def initialize(name_being_passed_in)
+    @name = name_being_passed_in
   end
 
   def main_menu
@@ -43,7 +45,7 @@ class CRM
     email = gets.chomp
 
     print "Enter a Note"
-    note = gets chomp
+    note = gets.chomp
 
     Contact.create (first_name, last_name, email, note)
   end
