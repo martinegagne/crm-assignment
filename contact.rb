@@ -3,7 +3,7 @@ class Contact
 attr_reader :first_name, :last_name, :email
 attr_writer :note
 
-@@contact = []
+@@contacts = []
 @@id = 1
 
   # This method should initialize the contact's attributes
@@ -20,21 +20,21 @@ attr_writer :note
   # store the newly created contact, and then return it
   def self.create (first_name, last_name, email, note)
     new_contact = Contact.new(first_name, last_name, email, note)
-    @@contact<< new_contact
+    @@contacts<< new_contact
     return new_contact
   end
 
   # This method should return all of the existing contacts
   def self.all
-    return @@contact
+    return @@contacts
   end
 
   # This method should accept an id as an argument
   # and return the contact who has that id
   def self.find (id)
     @id = id
-    @@contact.each do |contact|
-    if contact == id
+    @@contacts.each do |current_contact|
+    if current_contact == id
       return contact
     end
     end
@@ -65,7 +65,7 @@ attr_writer :note
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
   def self.find_by (attribute, value)
-    @@contact.each do |current_contact|
+    @@contacts.each do |current_contact|
       if attribute == "first_name" && current_contact.first_name == value
         return current_contact
       elsif attribute == "last_name" && current_contact.last_name == value
@@ -80,7 +80,7 @@ attr_writer :note
 
   # This method should delete all of the contacts
   def self.delete_all
-
+    @@contacts.clear
   end
 
   def full_name
@@ -90,16 +90,17 @@ attr_writer :note
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
   def delete
-
+    @@contacts.delete(self)
   end
 
   # Feel free to add other methods here, if you need them.
-
-end
 
 betty = Contact.create('Betty', 'Maker',  'bettymakes@gmail.com', 'Loves Pokemon.')
 octo = Contact.create('Octo', 'Cat', 'octocat@github.com', 'Is it an octopus? Is it a cat?')
 madmax = Contact.create('Mad', 'Max', 'madmax@gail.com', 'crazy driver')
 
 
-p Contact.find_by("first_name","Octo")
+betty.delete
+p @@contacts
+
+end

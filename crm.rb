@@ -31,7 +31,6 @@ class CRM
     when 4 then display_all_contacts
     when 5 then search_by_attribute
     when 6 then exit
-
   end
 
   def add_new_contact
@@ -46,9 +45,9 @@ class CRM
 
     print "Enter a Note"
     note = gets.chomp
-
-    Contact.create (first_name, last_name, email, note)
   end
+
+    Contact.create ("first_name", "last_name", "email, note")
 
   def modify_existing_contact
 
@@ -65,6 +64,5 @@ class CRM
   def search_by_attribute
 
   end
-
 
 end
