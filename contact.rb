@@ -75,8 +75,11 @@ attr_writer :note
       elsif attribute == "note" && current_contact.note == value
         return current_contact
       end
-    end
-  end
+    end # CLOSE LOOP
+
+      return nil
+
+  end # CLOSE find_by
 
   # This method should delete all of the contacts
   def self.delete_all
@@ -100,7 +103,7 @@ octo = Contact.create('Octo', 'Cat', 'octocat@github.com', 'Is it an octopus? Is
 madmax = Contact.create('Mad', 'Max', 'madmax@gail.com', 'crazy driver')
 
 
-betty.delete
-p @@contacts
+# betty.delete
+# p @@contacts
 
 end
