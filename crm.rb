@@ -58,7 +58,7 @@ end
     value = gets.chomp
 
     matched_contact = Contact.find_by(search_by_attribute, value)
-    puts matched_contact
+    print matched_contact
 
 
     if matched_contact != nil
@@ -71,14 +71,14 @@ end
         matched_contact.update(attribute_to_be_changed, new_value)
         print "Changed #{attribute_to_be_changed} to #{new_value}!"
     else
-      puts "Contact not found. Please try again."
+      print "Contact not found. Please try again."
     end
 
   end
 
 
   def delete_contact
-    puts "Please insert the ID number of the contact would you like to delete."
+    print "Please insert the ID number of the contact would you like to delete."
     id = id gets.to_i
 
     contact = Contact.find(id)
@@ -86,12 +86,19 @@ end
   end
 
   def display_all_contacts
-    puts "Now displaying all contacts..."
-    puts Contact.all.inspect
+    print "Now displaying all contacts..."
+    print Contact.all.inspect
   end
 
   def search_by_attribute
-    
+    print "How do you want to search for the contact (first_name, last_name, email, or note)?"
+    search_by_attribute = gets.chomp
+
+    print "What is the value for the contact?"
+    value = gets.chomp
+
+    matched_contact = Contact.find_by(search_by_attribute, value)
+    print matched_contact
   end
 
 end
