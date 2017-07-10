@@ -86,11 +86,12 @@ end
   end
 
   def display_all_contacts
-    
+    puts "Now displaying all contacts..."
+    puts Contact.all.inspect
   end
 
   def search_by_attribute
-
+    
   end
 
 end
