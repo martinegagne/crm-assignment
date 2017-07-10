@@ -78,11 +78,15 @@ end
 
 
   def delete_contact
+    puts "Please insert the ID number of the contact would you like to delete."
+    id = id gets.to_i
 
+    contact = Contact.find(id)
+    contact.delete
   end
 
   def display_all_contacts
-
+    
   end
 
   def search_by_attribute
